@@ -13,21 +13,35 @@
   
   /* Custom background color used as `bg-pale-blue` */
   --color-pale-blue: #e6f0ff; /* light pale blue */
-}
 
+  /* Add tokens so classes `bg-primary`, `bg-hero`, `bg-card` work in Tailwind v4 */
+  --color-primary: #ECEEFF;
+  --background-image-hero: url('./assets/images/collection-background.svg');
+  --background-image-card: url('./assets/images/thumbnail-background.svg');
+
+  /* Custom brand color used as `bg-coral-red` */
+  --color-coral-red: #ff6452;
+
+  /* Additional tokens to match tailwind.config.ts */
+  --color-white-400: rgba(255, 255, 255, 0.80);
+  --shadow-3xl: 0 10px 40px rgba(0, 0, 0, 0.1);
+  --breakpoint-wide: 1440px;
+}
 @layer components {
   .max-container {
     max-width: 1440px;
     margin: 0 auto;
   }
-
+  
   .input {
     @apply sm:flex-1 max-sm:w-full text-base leading-normal text-slate-gray pl-5 max-sm:p-5 outline-none sm:border-none border max-sm:border-slate-gray max-sm:rounded-full;
   }
 }
 
 @layer utilities {
-  .padding { @apply sm:px-16 px-8 sm:py-24 py-12; }
+  .padding {
+    @apply sm:px-16 px-8 sm:py-24 py-12;
+  }
   .padding-x { @apply sm:px-16 px-8; }
   .padding-y { @apply sm:py-24 py-12; }
   .padding-l { @apply sm:pl-16 pl-8; }
@@ -35,6 +49,21 @@
   .padding-t { @apply sm:pt-24 pt-12; }
   .padding-b { @apply sm:pb-24 pb-12; }
 
-  .info-text { @apply font-montserrat text-slate-gray text-lg leading-7; }
-}
+  .info-text {
+    @apply font-montserrat text-slate-gray text-lg leading-7;
+  }
 
+  /* Provide utilities used by @apply in components */
+  .text-slate-gray { color: #64748b; }
+  .font-montserrat {
+    font-family: "Montserrat", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  .font-palanquin {
+    font-family: "Palanquin", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+
+  /* Explicit responsive alias so `max-xl:padding-x` works */
+  @media (max-width: 1280px) {
+    .max-xl\:padding-x { @apply sm:px-16 px-8; }
+  }
+}
