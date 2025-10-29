@@ -31,6 +31,15 @@
   .max-container {
     max-width: 1440px;
     margin: 0 auto;
+    /* Global horizontal gutters */
+    padding-left: 2rem; /* px-8 */
+    padding-right: 2rem; /* px-8 */
+  }
+  @media (min-width: 640px) { /* sm */
+    .max-container {
+      padding-left: 4rem; /* sm:px-16 */
+      padding-right: 4rem; /* sm:px-16 */
+    }
   }
   
   .input {
